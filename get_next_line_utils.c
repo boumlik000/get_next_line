@@ -6,7 +6,7 @@
 /*   By: mboumlik <mboumlik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:59:23 by mboumlik          #+#    #+#             */
-/*   Updated: 2024/01/04 19:02:37 by mboumlik         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:14:54 by mboumlik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,22 @@ char	*ft_strchr(const char *s, int c)
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char	*source;
+	unsigned char	*destination;
+	size_t			i;
 
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
+	source = (unsigned char *)src;
+	destination = (unsigned char *)dest;
 	if (dest == src)
 		return (dest);
-	if (!dest && !src)
+	if (destination == NULL && source == NULL)
 		return (NULL);
-	while (n--)
-		*d++ = *s++;
+	i = 0;
+	while (i < n)
+	{
+		destination[i] = source[i];
+		i++;
+	}
 	return (dest);
 }
 
